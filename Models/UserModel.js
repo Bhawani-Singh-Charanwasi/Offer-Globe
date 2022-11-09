@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-// publisherUserSchema
-const publisherUserSchema = mongoose.Schema(
+//User Schema
+const UserSchema = mongoose.Schema(
     {
         firstName:{
             type:String,
@@ -12,15 +12,13 @@ const publisherUserSchema = mongoose.Schema(
         },
         email:{
             type:String,
-            required:true
+            required:true,
+            unique:true
         },
         phoneNumber:{
             type:Number,
-            required:true
-        },
-        password:{
-            type:String,
-            required:true
+            required:true,
+            unique:true
         },
         companyName:{
             type:String,
@@ -54,24 +52,20 @@ const publisherUserSchema = mongoose.Schema(
             required:true
         },
         trafficSource:{
-            type:String,
-            required:true
+            type:String
         },
         experience:{
-            type:String,
-            required:true
+            type:String
         },
         hearAbout:{
             type:String,
             required:true
         },
         currentlyPromote: {
-            type:String,
-            required:true
+            type:String
         },
         isMember:{
-            type:Boolean,
-            default:false,
+            type:Boolean
         },
         signed:{
             type:String
@@ -79,11 +73,16 @@ const publisherUserSchema = mongoose.Schema(
         isAgree:{
             type:Boolean,
             default:false
+        },
+        siteUrl:{
+            type:String
+        },
+        description:{
+            type:String
         }
-    },
-    {timestamps:true}
+    }
 );
 
-// publisherUserModel
-const publisherUserModel = mongoose.model("publisher", publisherUserSchema, "users");
-export default publisherUserModel;
+// User Model
+const UserModel = mongoose.model("users", UserSchema);
+export default UserModel;
