@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bp from "body-parser"
-import AuthRoute from "./Routes/userRoute.js";
+import userRoute from "./Routes/userRoute.js";
 
 
 const app = express();
@@ -24,4 +24,4 @@ mongoose
     .catch((error)=>console.log(error));
 
 // Uses Routes
-app.use("/", AuthRoute); 
+app.use("/user", userRoute); 

@@ -3,12 +3,16 @@ import mongoose from "mongoose";
 //User Schema
 const UserSchema = mongoose.Schema(
     {
+        types:{
+           type:String,
+        },
         firstName:{
             type:String,
             required:true
         },
         lastName:{
-            type:String
+            type:String,
+            default:""
         },
         email:{
             type:String,
@@ -20,6 +24,10 @@ const UserSchema = mongoose.Schema(
             required:true,
             unique:true
         },
+        password:{
+            type:String,
+            default:""
+        },
         companyName:{
             type:String,
             required:true
@@ -30,6 +38,7 @@ const UserSchema = mongoose.Schema(
         },
         address2:{
             type:String,
+            default:""
         },
         city:{
             type:String,
@@ -52,35 +61,43 @@ const UserSchema = mongoose.Schema(
             required:true
         },
         trafficSource:{
-            type:String
+            type:String,
+            default:""
         },
         experience:{
-            type:String
+            type:String,
+            default:""
         },
         hearAbout:{
             type:String,
             required:true
         },
         currentlyPromote: {
-            type:String
+            type:String,
+            default:""
         },
         isMember:{
-            type:Boolean
+            type:Boolean,
+            default:""
         },
         signed:{
-            type:String
+            type:String,
+            default:""
         },
         isAgree:{
             type:Boolean,
-            default:false
+            default:""
         },
         siteUrl:{
-            type:String
+            type:String,
+            default:""
         },
         description:{
-            type:String
+            type:String,
+            default:""
         }
-    }
+    },
+    {timestamps:true}
 );
 
 // User Model
